@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+.vscode/
+.env
+
+# Kaggle data & outputs (never commit competition data)
+data/raw/*
+data/processed/*
+submissions/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!submissions/.gitkeep
