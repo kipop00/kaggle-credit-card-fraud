@@ -1,4 +1,4 @@
-"""Data loading helpers."""
+"""Data loading and feature helpers."""
 
 from pathlib import Path
 
@@ -15,11 +15,12 @@ def load_data():
 
 
 def feature_columns(df):
+    """All columns except the id and target."""
     return [c for c in df.columns if c not in (ID_COL, TARGET)]
 
 
 def prepare_features(train, test):
-    """Cast object columns to a shared category dtype so tree models can use them."""
+    """Cast text columns to a shared category dtype so tree models can use them."""
     cols = feature_columns(train)
     X, X_test = train[cols].copy(), test[cols].copy()
     for c in X.select_dtypes(include=["object", "string"]).columns:
